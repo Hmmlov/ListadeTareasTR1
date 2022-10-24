@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TR1.Vistas.Tareas.TareasEntryPage">
+    <ContentPage.Content>
+        <StackLayout Padding="15">
+            <Label Text="Tareas Entrada"
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center"
+                   FontSize="Large"/>
+            <Entry x:Name="TxtTitulo"
+                   Placeholder="Ingrese el titulo"/>
+            <Entry x:Name="TxtDescripcion"
+                   Placeholder="Ingrese la descripcion"/>
+            <Entry x:Name="TxtEstado"
+                   Placeholder="Ingrese el estado"/>
+            <Button Text="Agregar"
+                    x:Name="BtnAgregar"
+                    CornerRadius="15"
+                    Clicked="BtnAgregar_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

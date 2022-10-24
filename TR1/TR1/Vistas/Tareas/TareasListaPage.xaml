@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TR1.Vistas.Tareas.TareasListaPage"
+             Title="Lista de Tareas"
+             Background="#45e3">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar"
+                     x:Name="AgregarItem"
+                     Clicked="AgregarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid RowDefinitions="*">
+        <StackLayout Spacing="15">
+            <ScrollView Margin="0" Padding="0">
+        <ListView x:Name="TareasListView"
+                  HasUnevenRows="True"
+                  ItemTapped="TareasListView_ItemTapped" RowHeight="120">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                                <Frame Padding="20,15,10,10" Margin="10,10,10,10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Spacing="12">
+                                <StackLayout Orientation="Vertical">
+                                            <Label Text="{Binding Titulo}" FontSize="Medium" TextColor="#324A59"
+                                                           FontAttributes="Bold"/>
+                                            <Label Text="{Binding Descripcion}" FontSize="Medium" TextColor="#324A59"/>
+                                    
+                                </StackLayout>
+                                            
+                                            <Button Text="{Binding Estado}"
+                                                            FontSize="11"
+                                                            BackgroundColor="#6C9EFD"
+                                                            CornerRadius="50"
+                                                            HeightRequest="20"
+                                                            Padding="15,0"
+                                                            HorizontalOptions="StartAndExpand"
+                                                            VerticalOptions="EndAndExpand"
+                                                            />
+                                        </StackLayout>
+                            <StackLayout HorizontalOptions="EndAndExpand">
+                                <Label Text="&#xf044;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="Large">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EditarTap" Tapped="EditarTap_Tapped" CommandParameter="{Binding Id}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <Label Text="&#xf1f8;" FontFamily="{StaticResource FontAwesomeSolid}" FontSize="Large">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer x:Name="EliminarTap" Tapped="EliminarTap_Tapped" CommandParameter="{Binding Id}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            </ScrollView>
+        </StackLayout>
+    </Grid>
+</ContentPage>
